@@ -12,6 +12,9 @@ input/*.jpeg
 input/*.webp
 input/*.tif
 input/*.tiff
+!input/example_a.png
+!input/example_b.png
+!input/example_c.png
 
 # Generated output files
 output/*
