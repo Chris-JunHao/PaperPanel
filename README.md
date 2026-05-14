@@ -1,12 +1,12 @@
+[中文说明](README.zh-CN.md)
 # PaperPanel
 
 PaperPanel is a lightweight Python + Pillow tool for composing already
-preprocessed academic PNG screenshots into 2-panel or 3-panel horizontal
-figures.
+preprocessed academic PNG screenshots into 2-panel or 3-panel paper figures.
 
 It does not crop, blur, sharpen, denoise, or enhance image contents. It only
-resizes panels to a shared height, places them on a white canvas, adds labels,
-and saves PNG output with 300 dpi metadata.
+resizes panels for layout, places them on a white canvas, adds labels, and
+saves PNG output with 300 dpi metadata.
 
 ## Setup
 
@@ -44,24 +44,50 @@ Define figure groups in `input/groups.txt`. Each non-empty, non-comment line has
 this format:
 
 ```text
-output_file | cols | image1 | label1 | image2 | label2 | image3 | label3
+output_file | layout | image1 | label1 | image2 | label2 | image3 | label3
 ```
 
-`cols` must be `2` or `3`.
+`layout` can be:
 
-For a 2-panel figure:
+- `h2`: horizontal 2-panel figure
+- `h3`: horizontal 3-panel figure
+- `v2`: vertical 2-panel figure
+- `v3`: vertical 3-panel figure
+
+The old numeric syntax is still supported for backward compatibility:
+
+- `2` is treated as `h2`
+- `3` is treated as `h3`
+
+For an old-format horizontal 2-panel figure:
 
 ```text
 my_figure.png | 2 | panel_a.png | (a) | panel_b.png | (b)
 ```
 
-For a 3-panel figure:
+For a horizontal 3-panel figure:
 
 ```text
-my_figure.png | 3 | panel_a.png | (a) | panel_b.png | (b) | panel_c.png | (c)
+my_horizontal.png | h3 | panel_a.png | (a) | panel_b.png | (b) | panel_c.png | (c)
+```
+
+For a vertical 2-panel figure:
+
+```text
+my_vertical_2.png | v2 | panel_a.png | (a) | panel_b.png | (b)
+```
+
+For a vertical 3-panel figure:
+
+```text
+my_vertical_3.png | v3 | panel_a.png | (a) | panel_b.png | (b) | panel_c.png | (c)
 ```
 
 Image paths are relative to `input/`. Output files are saved under `output/`.
+
+Horizontal layouts resize all panels to `TARGET_HEIGHT` and arrange them left to
+right. Vertical layouts resize all panels to `TARGET_WIDTH` and arrange them top
+to bottom. Labels are centered below each panel.
 
 ## Usage
 
@@ -78,6 +104,7 @@ The main layout constants are at the top of `compose_figures.py`:
 
 ```python
 TARGET_HEIGHT = 900
+TARGET_WIDTH = 1200
 PADDING = 40
 GAP = 30
 LABEL_SIZE = 36
