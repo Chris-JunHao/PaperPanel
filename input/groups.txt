@@ -18,7 +18,6 @@
 # - The old 2/3 syntax is kept for backward compatibility.
 # - The h2/h3/v2/v3 syntax is recommended for new configurations.
 
-example_old_2panel.png | 2 | example_a.png | (a) | example_b.png | (b)
 example_h2.png | h2 | example_a.png | (a) | example_b.png | (b)
 example_h3.png | h3 | example_a.png | (a) | example_b.png | (b) | example_c.png | (c)
 example_v2.png | v2 | example_a.png | (a) | example_b.png | (b)
