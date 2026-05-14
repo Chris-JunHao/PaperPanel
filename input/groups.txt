@@ -1,0 +1,25 @@
+# PaperPanel example configuration
+#
+# Format:
+# output_file | layout | image1 | label1 | image2 | label2 | image3 | label3
+#
+# Layout options:
+# - 2  : old syntax, treated as h2
+# - 3  : old syntax, treated as h3
+# - h2 : horizontal 2-panel figure
+# - h3 : horizontal 3-panel figure
+# - v2 : vertical 2-panel figure
+# - v3 : vertical 3-panel figure
+#
+# Notes:
+# - Image paths are relative to input/.
+# - Output files are saved to output/.
+# - Blank lines and lines starting with # are ignored.
+# - The old 2/3 syntax is kept for backward compatibility.
+# - The h2/h3/v2/v3 syntax is recommended for new configurations.
+
+example_old_2panel.png | 2 | example_a.png | (a) | example_b.png | (b)
+example_h2.png | h2 | example_a.png | (a) | example_b.png | (b)
+example_h3.png | h3 | example_a.png | (a) | example_b.png | (b) | example_c.png | (c)
+example_v2.png | v2 | example_a.png | (a) | example_b.png | (b)
+example_v3.png | v3 | example_a.png | (a) | example_b.png | (b) | example_c.png | (c)
