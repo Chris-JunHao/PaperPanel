@@ -1,0 +1,3 @@
+# output_file | cols | image1 | label1 | image2 | label2 | image3 | label3
+example_2panel.png | 2 | example_a.png | (a) | example_b.png | (b)
+example_3panel.png | 3 | example_a.png | (a) | example_b.png | (b) | example_c.png | (c)
